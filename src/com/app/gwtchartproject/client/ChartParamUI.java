@@ -1,22 +1,21 @@
-package com.3dcounting.client;
+package com.app.gwtchartproject.client;
 
 /*
-This class Module ChartParamUI will describe the UI of the ChartProject, in wich you cant pick the param 
+This class Module ChartParamUI will describe the UI of the ChartProject, in wich you cant pick the param
 to select the chart of your choice.
 This class implement EntryPoint because it's going to be displayed.
 We need so 5 differents elements :
 		- A dpBeginDateSelector: DatePicker
 		- A tpBeginTimeSelector: Timepicker
 		- A dpEndDateSelector: DatePicker
-		- A tpEndTimeSelector: TimePicker 
+		- A tpEndTimeSelector: TimePicker
 		- A lbGranularitySelector: ListBox (YEAR, MONTH, WEEK, DAY, HOUR, MINUTE)
 
-The onModuleLoad method will instanciate and dispaly all this UI elements and then Instanciante 
-a ChartParam currentChartParam wich will be compared with the ChartParam Object wich 
+The onModuleLoad method will instanciate and dispaly all this UI elements and then Instanciante
+a ChartParam currentChartParam wich will be compared with the ChartParam Object wich
 created previous chart every 3seconds
 */
 
-import com.3dcounting.client.ChartParam;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Panel;
@@ -42,7 +41,7 @@ import com.google.gwt.event.logical.shared.*;
 import com.summatech.gwt.GwtTimepicker;
 import com.google.gwt.user.client.ui.ListBox;
 
-public class ChartParamUI implements EntryPoint {
+public class ChartParamUI extends Widget{
 
 	/*
 	* ChartParam wich will be constantly update
@@ -57,6 +56,12 @@ public class ChartParamUI implements EntryPoint {
 	/**************************************
 					Methods
 	***************************************/
+
+	//Constructor
+	public ChartParamUI(){
+		super();
+		onload();
+	}
 	public String getGranularitySelected(){
 		return this.sGranularitySelected;
 	}
@@ -65,10 +70,12 @@ public class ChartParamUI implements EntryPoint {
 	}
 
 
+
+
 	/*
-	* Create the EntryPoint Method
+	* Create the load Method
 	*/
-	public onModuleLoad(){
+	public onLoad(){
 
 
 		/*
@@ -77,7 +84,7 @@ public class ChartParamUI implements EntryPoint {
 		final Label lblBeginSection = new Label("Choose Your begin state of chart treatment");
 		final DatePicker dpBeginDateSelector = new DatePicker();
 		final Label lblBeginTimeInstructions = new Label("Put your chosen begin time format : hh:mm:ss");
-		final TextField tpBeginTimeSelector = new TextField("00:00:00");
+		final TimePicker tpBeginTimeSelector = new TimePicker("Begin Time Selector");
 		final Button btBeginTimeSend = new Button("Specify Begin Time");
 		//Textfield Allows
 		tpBeginTimeSelector.setMaxLength(8);
@@ -92,13 +99,8 @@ public class ChartParamUI implements EntryPoint {
 		final Label lblEndSection = new Label("Choose Your end state of chart treatment");
 		final DatePicker dpEndDateSelector = new DatePicker();
 		final Label lblEndTimeInstructions = new Label("Put your chosen end time format : hh:mm:ss");
-		final TextField tpEndTimeSelector = new TextField("00:00:00");
+		final Timepicker tpEndTimeSelector = new TimePicker("End Time Selector");
 		final Button btEndTimeSend = new Button("Specify End Time");
-		//Textfield Allows
-		tpEndTimeSelector.setMaxLength(8);
-		tpEndTimeSelector.setMaxLengthText("Oops, appears that you hadn't write a good time");
-		tpEndTimeSelector.setMinLength(8);
-		tpEndTimeSelector.setMinLengthText("Oops, appears that you hadn't write a good time");
 
 
 		/*
