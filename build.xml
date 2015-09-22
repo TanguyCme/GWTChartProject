@@ -55,7 +55,7 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
       <arg line="${gwt.args}"/>
-      <arg value="com.3dcounting.GWTChartProject"/>
+      <arg value="com.app.gwtchartproject.GWTChartProject"/>
     </java>
   </target>
 
@@ -72,8 +72,8 @@
       <arg value="war"/>
       <!-- Additional arguments like -style PRETTY, -logLevel DEBUG or -nosuperDevMode -->
       <arg line="${gwt.args}"/>
-      <arg value="com.3dcounting.GWTChartProject"/>
-      <arg value="com.3dcounting.GWTChartProject"/>
+      <arg value="com.app.gwtchartproject.GWTChartProject"/>
+      <arg value="com.app.gwtchartproject.GWTChartProject"/>
     </java>
   </target>
 
@@ -89,7 +89,7 @@ Test targets suppressed because -junit argument was not specified when running w
       <classpath refid="project.class.path"/>
     </javac>
   </target>
-  
+
   <target name="test.dev" depends="javac.tests" description="Run development mode tests">
     <mkdir dir="reports/htmlunit.dev" />
     <junit fork="yes" printsummary="yes" haltonfailure="yes" maxmemory="256m">

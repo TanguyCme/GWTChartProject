@@ -1,45 +1,27 @@
 package com.app.gwtchartproject.client;
-
 /*
-This class Module ChartParamUI will describe the UI of the ChartProject, in wich you cant pick the param
-to select the chart of your choice.
-This class implement EntryPoint because it's going to be displayed.
-We need so 5 differents elements :
-		- A dpBeginDateSelector: DatePicker
-		- A tpBeginTimeSelector: Timepicker
-		- A dpEndDateSelector: DatePicker
-		- A tpEndTimeSelector: TimePicker
-		- A lbGranularitySelector: ListBox (YEAR, MONTH, WEEK, DAY, HOUR, MINUTE)
+This module describes the UI wich contain 5 begin pickers components,
+5 end pickers components and a granularity listbox
+Each time you can choose :
+ 													- The date of begenning and end
+													- The time (min and hour) of begenning and end
+													- The granularity of your chart,
+													- a button to sens end and begin time if you want to change it dynamically
 
-The onModuleLoad method will instanciate and dispaly all this UI elements and then Instanciante
-a ChartParam currentChartParam wich will be compared with the ChartParam Object wich
-created previous chart every 3seconds
+This module instanciate all the elements and format it in the UI to have a responsive view
 */
 
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.datepicker.client.DatePicker;
 import java.util.Date;
+
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.event.logical.shared.*;
-import com.summatech.gwt.GwtTimepicker;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.datepicker.client.DatePicker;
+import com.google.gwt.user.client.ui.Widget;
 
 public class ChartParamUI extends Widget{
 
@@ -48,34 +30,11 @@ public class ChartParamUI extends Widget{
 	*/
 	public ChartParam cpCurrentChartParam = new ChartParam();
 
-	/**************************************
-				   Attributes
-	***************************************/
-	private String sGranularitySelected = new String();
-
-	/**************************************
-					Methods
-	***************************************/
-
-	//Constructor
-	public ChartParamUI(){
-		super();
-		onload();
-	}
-	public String getGranularitySelected(){
-		return this.sGranularitySelected;
-	}
-	public void setGranularitySelected(String sGranularitySelected){
-		this.sGranularitySelected = sGranularitySelected;
-	}
-
-
-
 
 	/*
-	* Create the load Method
+	* Constructor method
 	*/
-	public onLoad(){
+	public ChartParamUI(){
 
 
 		/*
@@ -86,12 +45,6 @@ public class ChartParamUI extends Widget{
 		final Label lblBeginTimeInstructions = new Label("Put your chosen begin time format : hh:mm:ss");
 		final TimePicker tpBeginTimeSelector = new TimePicker("Begin Time Selector");
 		final Button btBeginTimeSend = new Button("Specify Begin Time");
-		//Textfield Allows
-		tpBeginTimeSelector.setMaxLength(8);
-		tpBeginTimeSelector.setMaxLengthText("Oops, appears that you hadn't write a good format time");
-		tpBeginTimeSelector.setMinLength(8);
-		tpBeginTimeSelector.setMinLengthText("Oops, appears that you hadn't write a good format time");
-
 
 		/*
 		* End picker components
@@ -99,21 +52,14 @@ public class ChartParamUI extends Widget{
 		final Label lblEndSection = new Label("Choose Your end state of chart treatment");
 		final DatePicker dpEndDateSelector = new DatePicker();
 		final Label lblEndTimeInstructions = new Label("Put your chosen end time format : hh:mm:ss");
-		final Timepicker tpEndTimeSelector = new TimePicker("End Time Selector");
+		final TimePicker tpEndTimeSelector = new TimePicker("Begin Time Selector");
 		final Button btEndTimeSend = new Button("Specify End Time");
-
 
 		/*
 		* Granularity listBox
 		*/
 		final ListBox lbGranularitySelector = new ListBox();
-		lbGranularitySelector.addItem("YEAR");
-		lbGranularitySelector.addItem("MONTH");
-		lbGranularitySelector.addItem("WEEK");
-		lbGranularitySelector.addItem("DAY");
-		lbGranularitySelector.addItem("HOUR");
-		lbGranularitySelector.addItem("MINUTE");
-
+//		lbGranularity.addItem(item);
 
 		/*
 		* Format modifiers
@@ -145,10 +91,12 @@ public class ChartParamUI extends Widget{
 		* BeginDatePicker Handler, Convert Date to sql-type Date and places it in the currentChartParam as BeginDate
 		*/
 		dpBeginDateSelector.addValueChangeHandler(new ValueChangeHandler<Date>(){
+
+			@Override
       		public void onValueChange(ValueChangeEvent<Date> event) {
-		  		final Date selectedDate = new Date();
+		  		Date selectedDate = new Date();
 		    	selectedDate = event.getValue();
-		   		dateString = sqlFormat.format(selectedDate);
+		   		String dateString = sqlFormat.format(selectedDate);
 		   		cpCurrentChartParam.setBeginDate(dateString);
     		}
     	});
@@ -159,7 +107,7 @@ public class ChartParamUI extends Widget{
     	*/
     	dpEndDateSelector.addValueChangeHandler(new ValueChangeHandler<Date>(){
     		public void onValueChange(ValueChangeEvent<Date> event) {
-    			final Date selectedDate = new Date();
+    			Date selectedDate = new Date();
     			selectedDate = event.getValue();
     			String dateString = new String();
     			dateString = sqlFormat.format(selectedDate);
