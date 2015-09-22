@@ -15,6 +15,11 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.sencha.gxt.widget.core.client.ContentPanel;
+import com.sencha.gxt.fx.client.Draggable;
+import com.sencha.gxt.widget.core.client.Component;
 
 public class TimePicker extends Widget {
 
@@ -80,6 +85,7 @@ public class TimePicker extends Widget {
 	public void onLoad(){
 
 		//Create the two needed Listboxs
+		final Label lblName = new Label(_sTimePickerName);
 		final ListBox lbHourSelector = new ListBox();
 		final ListBox lbMinuteSelector = new ListBox();
 		final Label lblHour = new Label("h");
@@ -179,11 +185,18 @@ public class TimePicker extends Widget {
 		//Define the number of elements
 		lbMinuteSelector.setVisibleItemCount(60);
 
-		//Add the pickers and labels to the RootPanel
-		RootPanel.get().add(lbHourSelector);
-		RootPanel.get().add(lblHour);
-		RootPanel.get().add(lbMinuteSelector);
-		RootPanel.get().add(lblMinute);
+		//Add the pickers and labels to the RootPanel describes in the UI description
+
+		HorizontalPanel hpContainer = new HorizontalPanel();
+		VerticalPanel vpContainer = new VerticalPanel();
+		vpContainer.add(lblName);
+		hpContainer.add(lbHourSelector);
+		hpContainer.add(lblHour);
+		hpContainer.add(lbMinuteSelector);
+		hpContainer.add(lblMinute);
+		vpContainer.add(hpContainer);
+
+		RootPanel.get().add(vpContainer);
 
 		//Create change value handler passing index to notify a listbox change for hours
 		lbHourSelector.addChangeHandler(new ChangeHandler(){
