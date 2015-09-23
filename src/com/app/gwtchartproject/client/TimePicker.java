@@ -1,4 +1,5 @@
 package com.app.gwtchartproject.client;
+
 /*
 This Module named TimePicker.java Describe a time picker widget wich
 will contain 3 arguments :
@@ -40,8 +41,8 @@ public class TimePicker extends Widget {
 	*/
 	public TimePicker(String sName){
 		super();
-		setTimePickerName(sName);
-		onLoad();
+		this._sTimePickerName = sName;
+    this.onLoad();
 	}
 
 	//*************Getters*************
@@ -57,7 +58,6 @@ public class TimePicker extends Widget {
 	public String getTimePickerValue(){
 		return this._sTimePickerValue;
 	}
-
 	public String getTimePickerName(){
 		return this._sTimePickerName;
 	}
@@ -90,6 +90,7 @@ public class TimePicker extends Widget {
 		final ListBox lbMinuteSelector = new ListBox();
 		final Label lblHour = new Label("h");
 		final Label lblMinute = new Label("min");
+		final Label lblName = new Label(this.getTimePickerName());
 
 		//Implements the HourSelector
 		lbHourSelector.addItem("00");
@@ -118,7 +119,7 @@ public class TimePicker extends Widget {
 		lbHourSelector.addItem("23");
 
 		//Define the number of elements
-		lbHourSelector.setVisibleItemCount(24);
+		lbHourSelector.setVisibleItemCount(1);
 
 		//Implements the MinuteSelector
 		lbMinuteSelector.addItem("00");
@@ -183,8 +184,23 @@ public class TimePicker extends Widget {
 		lbMinuteSelector.addItem("59");
 
 		//Define the number of elements
-		lbMinuteSelector.setVisibleItemCount(60);
+		lbMinuteSelector.setVisibleItemCount(1);
 
+		/*
+		This bloc defines th UI, set the Component Draggable
+		and defines width of the contentpanel
+		*/
+		//1st one HorizontalPanel which horizontally plces the elements
+		HorizontalPanel hpContainer = new HorizontalPanel();
+		VerticalPanel vpContainer = new VerticalPanel();
+		vpContainer.add(lblName);
+		hpContainer.add(lbHourSelector);
+		hpContainer.add(lblHour);
+		hpContainer.add(lbMinuteSelector);
+		hpContainer.add(lblMinute);
+		vpContainer.add(hpContainer);
+
+<<<<<<< HEAD
 		//Add the pickers and labels to the RootPanel describes in the UI description
 
 		HorizontalPanel hpContainer = new HorizontalPanel();
@@ -196,6 +212,8 @@ public class TimePicker extends Widget {
 		hpContainer.add(lblMinute);
 		vpContainer.add(hpContainer);
 
+=======
+>>>>>>> chartDeveloppement
 		RootPanel.get().add(vpContainer);
 
 		//Create change value handler passing index to notify a listbox change for hours
