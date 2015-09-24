@@ -23,10 +23,6 @@
     <pathelement location="${gwt.sdk}/visualization-datasource-1.1.2.jar"/>
     <pathelement location="${gwt.sdk}/gxt-3.1.1.jar"/>
     <pathelement location="${gwt.sdk}/gxt-3.1.1-sources.jar"/>
-<<<<<<< HEAD
-=======
-    <!-- <pathelement location="${gwt.sdk}/GWTChartProject/src/com/app/gwtchartproject/chartDisplayer"/> -->
->>>>>>> ChartTest
     <fileset dir="war/WEB-INF/lib" includes="**/*.jar"/>
     <!-- Add any additional non-server libs (such as JUnit) here -->
   </path>

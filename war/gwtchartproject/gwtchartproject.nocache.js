@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-function gwtchartproject(){var O='bootstrap',P='begin',Q='gwt.codesvr.gwtchartproject=',R='gwt.codesvr=',S='gwtchartproject',T='startup',U='DUMMY',V=0,W=1,X='iframe',Y='javascript:""',Z='position:absolute; width:0; height:0; border:none; left: -1000px;',$=' top: -1000px;',_='CSS1Compat',ab='<!doctype html>',bb='',cb='<html><head><\/head><body><\/body><\/html>',db='undefined',eb='DOMContentLoaded',fb=50,gb='Chrome',hb='eval("',ib='");',jb='script',kb='javascript',lb='moduleStartup',mb='moduleRequested',nb='Failed to load ',ob='head',pb='meta',qb='name',rb='gwtchartproject::',sb='::',tb='gwt:property',ub='content',vb='=',wb='gwt:onPropertyErrorFn',xb='Bad handler "',yb='" for "gwt:onPropertyErrorFn"',zb='gwt:onLoadErrorFn',Ab='" for "gwt:onLoadErrorFn"',Bb='#',Cb='?',Db='/',Eb='img',Fb='clear.cache.gif',Gb='baseUrl',Hb='gwtchartproject.nocache.js',Ib='base',Jb='//',Kb='user.agent',Lb='webkit',Mb='safari',Nb='msie',Ob=10,Pb=11,Qb='ie10',Rb=9,Sb='ie9',Tb=8,Ub='ie8',Vb='gecko',Wb='gecko1_8',Xb=2,Yb=3,Zb=4,$b='selectingPermutation',_b='gwtchartproject.devmode.js',ac='13EEAF7D76601A391C5C3057CBB9E010',bc='2737766B40B9E477F1BE7C07471D0DFA',cc='336A1EB6CE57D56C83AEFC1AB0951D5A',dc='C4EDDBE80BC24956A61F5CF213C7E0A9',ec='FB4B8669AA9906E02549D44AFF43275D',fc=':',gc='.cache.js',hc='link',ic='rel',jc='stylesheet',kc='href',lc='loadExternalRefs',mc='gwt/clean/clean.css',nc='end',oc='http:',pc='file:',qc='_gwt_dummy_',rc='__gwtDevModeHook:gwtchartproject',sc='Ignoring non-whitelisted Dev Mode URL: ',tc=':moduleBase';var o=window;var p=document;r(O,P);function q(){var a=o.location.search;return a.indexOf(Q)!=-1||a.indexOf(R)!=-1}
+function gwtchartproject(){var O='bootstrap',P='begin',Q='gwt.codesvr.gwtchartproject=',R='gwt.codesvr=',S='gwtchartproject',T='startup',U='DUMMY',V=0,W=1,X='iframe',Y='javascript:""',Z='position:absolute; width:0; height:0; border:none; left: -1000px;',$=' top: -1000px;',_='CSS1Compat',ab='<!doctype html>',bb='',cb='<html><head><\/head><body><\/body><\/html>',db='undefined',eb='DOMContentLoaded',fb=50,gb='Chrome',hb='eval("',ib='");',jb='script',kb='javascript',lb='moduleStartup',mb='moduleRequested',nb='Failed to load ',ob='head',pb='meta',qb='name',rb='gwtchartproject::',sb='::',tb='gwt:property',ub='content',vb='=',wb='gwt:onPropertyErrorFn',xb='Bad handler "',yb='" for "gwt:onPropertyErrorFn"',zb='gwt:onLoadErrorFn',Ab='" for "gwt:onLoadErrorFn"',Bb='#',Cb='?',Db='/',Eb='img',Fb='clear.cache.gif',Gb='baseUrl',Hb='gwtchartproject.nocache.js',Ib='base',Jb='//',Kb='gxt.user.agent',Lb='chrome',Mb='opera',Nb='msie',Ob=10,Pb='ie10',Qb=9,Rb='ie9',Sb=8,Tb='ie8',Ub='msie 7',Vb='ie7',Wb='msie 6',Xb='ie6',Yb='safari',Zb='version/3',$b='safari3',_b='version/4',ac='safari4',bc='safari5',cc='gecko',dc='rv:1.8',ec='gecko1_8',fc='gecko1_9',gc='adobeair',hc='air',ic=2,jc=3,kc=4,lc=5,mc=6,nc=7,oc='user.agent',pc='webkit',qc=11,rc='user.agent.os',sc='macintosh',tc='mac os x',uc='mac',vc='linux',wc='windows',xc='win32',yc='unknown',zc='selectingPermutation',Ac='gwtchartproject.devmode.js',Bc='105E165DCB88DF51AF21FC2566D3AF28',Cc=':1',Dc=':2',Ec=':3',Fc='2F23838A4E6DD9D21F0E3C3894EA3BA9',Gc='3CD74AFAD7DC052D89565C8C16342635',Hc=':4',Ic=':5',Jc=':6',Kc=':7',Lc='827F178A56EFA3CFA37374393573D0C8',Mc=':10',Nc=':11',Oc=':12',Pc=':13',Qc=':14',Rc=':15',Sc=':16',Tc=':17',Uc=':18',Vc=':19',Wc=':8',Xc=':9',Yc='D247C0811C8FE0F352836E837F393781',Zc=':',$c='.cache.js',_c='link',ad='rel',bd='stylesheet',cd='href',dd='loadExternalRefs',ed='gwt/clean/clean.css',fd='end',gd='http:',hd='file:',jd='_gwt_dummy_',kd='__gwtDevModeHook:gwtchartproject',ld='Ignoring non-whitelisted Dev Mode URL: ',md=':moduleBase';var o=window;var p=document;r(O,P);function q(){var a=o.location.search;return a.indexOf(Q)!=-1||a.indexOf(R)!=-1}
 function r(a,b){if(o.__gwtStatsEvent){o.__gwtStatsEvent({moduleName:S,sessionId:o.__gwtStatsSessionId,subSystem:T,evtGroup:a,millis:(new Date).getTime(),type:b})}}
 gwtchartproject.__sendStats=r;gwtchartproject.__moduleName=S;gwtchartproject.__errFn=null;gwtchartproject.__moduleBase=U;gwtchartproject.__softPermutationId=V;gwtchartproject.__computePropValue=null;gwtchartproject.__getPropMap=null;gwtchartproject.__installRunAsyncCode=function(){};gwtchartproject.__gwtStartLoadingFragment=function(){return null};gwtchartproject.__gwt_isKnownPropertyValue=function(){return false};gwtchartproject.__gwt_getMetaProperty=function(){return null};var s=null;var t=o.__gwt_activeModules=o.__gwt_activeModules||{};t[S]={moduleName:S};gwtchartproject.__moduleStartupDone=function(e){var f=t[S].bindings;t[S].bindings=function(){var a=f?f():{};var b=e[gwtchartproject.__softPermutationId];for(var c=V;c<b.length;c++){var d=b[c];a[d[V]]=d[W]}return a}};var u;function v(){w();return u}
 function w(){if(u){return}var a=p.createElement(X);a.src=Y;a.id=S;a.style.cssText=Z+$;a.tabIndex=-1;p.body.appendChild(a);u=a.contentDocument;if(!u){u=a.contentWindow.document}u.open();var b=document.compatMode==_?ab:bb;u.write(b+cb);u.close()}
@@ -20,78 +19,9 @@ var k=g();if(k==bb){k=h()}if(k==bb){k=i()}if(k==bb&&j()){k=e(p.location.href)}k=
 function D(a){if(a.match(/^\//)){return a}if(a.match(/^[a-zA-Z]+:\/\//)){return a}return gwtchartproject.__moduleBase+a}
 function F(){var f=[];var g=V;function h(a,b){var c=f;for(var d=V,e=a.length-W;d<e;++d){c=c[a[d]]||(c[a[d]]=[])}c[a[e]]=b}
 var i=[];var j=[];function k(a){var b=j[a](),c=i[a];if(b in c){return b}var d=[];for(var e in c){d[c[e]]=e}if(s){s(a,d,b)}throw null}
-j[Kb]=function(){var a=navigator.userAgent.toLowerCase();var b=p.documentMode;if(function(){return a.indexOf(Lb)!=-1}())return Mb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Ob&&b<Pb)}())return Qb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Rb&&b<Pb)}())return Sb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Tb&&b<Pb)}())return Ub;if(function(){return a.indexOf(Vb)!=-1||b>=Pb}())return Wb;return bb};i[Kb]={gecko1_8:V,ie10:W,ie8:Xb,ie9:Yb,safari:Zb};__gwt_isKnownPropertyValue=function(a,b){return b in i[a]};gwtchartproject.__getPropMap=function(){var a={};for(var b in i){if(i.hasOwnProperty(b)){a[b]=k(b)}}return a};gwtchartproject.__computePropValue=k;o.__gwt_activeModules[S].bindings=gwtchartproject.__getPropMap;r(O,$b);if(q()){return D(_b)}var l;try{h([Wb],ac);h([Ub],bc);h([Qb],cc);h([Sb],dc);h([Mb],ec);l=f[k(Kb)];var m=l.indexOf(fc);if(m!=-1){g=parseInt(l.substring(m+W),Ob);l=l.substring(V,m)}}catch(a){}gwtchartproject.__softPermutationId=g;return D(l+gc)}
-function G(){if(!o.__gwt_stylesLoaded){o.__gwt_stylesLoaded={}}function c(a){if(!__gwt_stylesLoaded[a]){var b=p.createElement(hc);b.setAttribute(ic,jc);b.setAttribute(kc,D(a));p.getElementsByTagName(ob)[V].appendChild(b);__gwt_stylesLoaded[a]=true}}
-r(lc,P);c(mc);r(lc,nc)}
-B();gwtchartproject.__moduleBase=C();t[S].moduleBase=gwtchartproject.__moduleBase;var H=F();if(o){var I=!!(o.location.protocol==oc||o.location.protocol==pc);o.__gwt_activeModules[S].canRedirect=I;function J(){var b=qc;try{o.sessionStorage.setItem(b,b);o.sessionStorage.removeItem(b);return true}catch(a){return false}}
-if(I&&J()){var K=rc;var L=o.sessionStorage[K];if(!/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/.*$/.test(L)){if(L&&(window.console&&console.log)){console.log(sc+L)}L=bb}if(L&&!o[K]){o[K]=true;o[K+tc]=C();var M=p.createElement(jb);M.src=L;var N=p.getElementsByTagName(ob)[V];N.insertBefore(M,N.firstElementChild||N.children[V]);return false}}}G();r(O,nc);A(H);return true}
+j[Kb]=function(){var a=navigator.userAgent.toLowerCase();if(a.indexOf(Lb)!=-1)return Lb;if(a.indexOf(Mb)!=-1)return Mb;if(a.indexOf(Nb)!=-1){if(p.documentMode>=Ob)return Pb;if(p.documentMode>=Qb)return Rb;if(p.documentMode>=Sb)return Tb;if(a.indexOf(Ub)!=-1)return Vb;if(a.indexOf(Wb)!=-1)return Xb;return Pb}if(a.indexOf(Yb)!=-1){if(a.indexOf(Zb)!=-1)return $b;if(a.indexOf(_b)!=-1)return ac;return bc}if(a.indexOf(cc)!=-1){if(a.indexOf(dc)!=-1)return ec;return fc}if(a.indexOf(gc)!=-1)return hc;return null};i[Kb]={air:V,chrome:W,gecko1_8:ic,gecko1_9:jc,ie10:kc,ie8:lc,ie9:mc,safari3:nc,safari4:Sb,safari5:Qb};j[oc]=function(){var a=navigator.userAgent.toLowerCase();var b=p.documentMode;if(function(){return a.indexOf(pc)!=-1}())return Yb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Ob&&b<qc)}())return Pb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Qb&&b<qc)}())return Rb;if(function(){return a.indexOf(Nb)!=-1&&(b>=Sb&&b<qc)}())return Tb;if(function(){return a.indexOf(cc)!=-1||b>=qc}())return ec;return bb};i[oc]={gecko1_8:V,ie10:W,ie8:ic,ie9:jc,safari:kc};j[rc]=function(){var a=o.navigator.userAgent.toLowerCase();if(a.indexOf(sc)!=-1||a.indexOf(tc)!=-1){return uc}if(a.indexOf(vc)!=-1){return vc}if(a.indexOf(wc)!=-1||a.indexOf(xc)!=-1){return wc}return yc};i[rc]={linux:V,mac:W,unknown:ic,windows:jc};__gwt_isKnownPropertyValue=function(a,b){return b in i[a]};gwtchartproject.__getPropMap=function(){var a={};for(var b in i){if(i.hasOwnProperty(b)){a[b]=k(b)}}return a};gwtchartproject.__computePropValue=k;o.__gwt_activeModules[S].bindings=gwtchartproject.__getPropMap;r(O,zc);if(q()){return D(Ac)}var l;try{h([Rb,Rb,vc],Bc);h([Rb,Rb,uc],Bc+Cc);h([Rb,Rb,yc],Bc+Dc);h([Rb,Rb,wc],Bc+Ec);h([Tb,Tb,vc],Fc);h([Tb,Tb,uc],Fc+Cc);h([Tb,Tb,yc],Fc+Dc);h([Tb,Tb,wc],Fc+Ec);h([ec,ec,vc],Gc);h([ec,ec,uc],Gc+Cc);h([ec,ec,yc],Gc+Dc);h([ec,ec,wc],Gc+Ec);h([fc,ec,vc],Gc+Hc);h([fc,ec,uc],Gc+Ic);h([fc,ec,yc],Gc+Jc);h([fc,ec,wc],Gc+Kc);h([hc,Yb,vc],Lc);h([hc,Yb,uc],Lc+Cc);h([$b,Yb,yc],Lc+Mc);h([$b,Yb,wc],Lc+Nc);h([ac,Yb,vc],Lc+Oc);h([ac,Yb,uc],Lc+Pc);h([ac,Yb,yc],Lc+Qc);h([ac,Yb,wc],Lc+Rc);h([bc,Yb,vc],Lc+Sc);h([bc,Yb,uc],Lc+Tc);h([bc,Yb,yc],Lc+Uc);h([bc,Yb,wc],Lc+Vc);h([hc,Yb,yc],Lc+Dc);h([hc,Yb,wc],Lc+Ec);h([Lb,Yb,vc],Lc+Hc);h([Lb,Yb,uc],Lc+Ic);h([Lb,Yb,yc],Lc+Jc);h([Lb,Yb,wc],Lc+Kc);h([$b,Yb,vc],Lc+Wc);h([$b,Yb,uc],Lc+Xc);h([Pb,Pb,vc],Yc);h([Pb,Pb,uc],Yc+Cc);h([Pb,Pb,yc],Yc+Dc);h([Pb,Pb,wc],Yc+Ec);l=f[k(Kb)][k(oc)][k(rc)];var m=l.indexOf(Zc);if(m!=-1){g=parseInt(l.substring(m+W),Ob);l=l.substring(V,m)}}catch(a){}gwtchartproject.__softPermutationId=g;return D(l+$c)}
+function G(){if(!o.__gwt_stylesLoaded){o.__gwt_stylesLoaded={}}function c(a){if(!__gwt_stylesLoaded[a]){var b=p.createElement(_c);b.setAttribute(ad,bd);b.setAttribute(cd,D(a));p.getElementsByTagName(ob)[V].appendChild(b);__gwt_stylesLoaded[a]=true}}
+r(dd,P);c(ed);r(dd,fd)}
+B();gwtchartproject.__moduleBase=C();t[S].moduleBase=gwtchartproject.__moduleBase;var H=F();if(o){var I=!!(o.location.protocol==gd||o.location.protocol==hd);o.__gwt_activeModules[S].canRedirect=I;function J(){var b=jd;try{o.sessionStorage.setItem(b,b);o.sessionStorage.removeItem(b);return true}catch(a){return false}}
+if(I&&J()){var K=kd;var L=o.sessionStorage[K];if(!/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/.*$/.test(L)){if(L&&(window.console&&console.log)){console.log(ld+L)}L=bb}if(L&&!o[K]){o[K]=true;o[K+md]=C();var M=p.createElement(jb);M.src=L;var N=p.getElementsByTagName(ob)[V];N.insertBefore(M,N.firstElementChild||N.children[V]);return false}}}G();r(O,fd);A(H);return true}
 gwtchartproject.succeeded=gwtchartproject();
-=======
-/*
- * Copyright 2014 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
-
-/**
- * This startup script is used when we run superdevmode from an app server.
- */
-(function($wnd, $doc){
-  // document.head does not exist in IE8
-  var $head = $doc.head || $doc.getElementsByTagName('head')[0];
-  // Compute some codeserver urls so as the user does not need bookmarklets
-  var hostName = $wnd.location.hostname;
-  var serverUrl = 'http://' + hostName + ':9876';
-  var module = 'gwtchartproject';
-  var nocacheUrl = serverUrl + '/recompile-requester/' + module;
-
-  // Insert the superdevmode nocache script in the first position of the head
-  var devModeScript = $doc.createElement('script');
-  devModeScript.src = nocacheUrl;
-
-  // Everybody except IE8 does fire an error event
-  // This means that we do not detect a non running SDM with IE8.
-  if (devModeScript.addEventListener) {
-    var callback = function() {
-      // Don't show the confirmation dialogue twice (multimodule)
-      if (!$wnd.__gwt__sdm__confirmed &&
-           (!$wnd.__gwt_sdm__recompiler || !$wnd.__gwt_sdm__recompiler.loaded)) {
-        $wnd.__gwt__sdm__confirmed = true;
-        if ($wnd.confirm(
-            "Couldn't load " +  module + " from Super Dev Mode\n" +
-            "server at " + serverUrl + ".\n" +
-            "Please make sure this server is ready.\n" +
-            "Do you want to try again?")) {
-          $wnd.location.reload();
-        }
-      }
-    };
-    devModeScript.addEventListener("error", callback, true);
-  }
-
-  var injectScriptTag = function(){
-    $head.insertBefore(devModeScript, $head.firstElementChild || $head.children[0]);
-  };
-
-  if (/loaded|complete/.test($doc.readyState)) {
-    injectScriptTag();
-  } else {
-    //defer app script insertion until the body is ready
-    if($wnd.addEventListener){
-      $wnd.addEventListener('load', injectScriptTag, false);
-    } else{
-      $wnd.attachEvent('onload', injectScriptTag);
-    }
-  }
-})(window, document);
->>>>>>> ChartTest

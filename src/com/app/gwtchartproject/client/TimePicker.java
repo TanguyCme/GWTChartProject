@@ -97,7 +97,6 @@ public class TimePicker extends Widget {
 	public void onLoad(){
 
 		//Create the two needed Listboxs
-		final Label lblName = new Label(_sTimePickerName);
 		final ListBox lbHourSelector = new ListBox();
 		final ListBox lbMinuteSelector = new ListBox();
 		final Label lblHour = new Label("h");
@@ -212,25 +211,7 @@ public class TimePicker extends Widget {
 		hpContainer.add(lblMinute);
 		setWidgetInVPContainer(hpContainer);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//Add the pickers and labels to the RootPanel describes in the UI description
-
-		HorizontalPanel hpContainer = new HorizontalPanel();
-		VerticalPanel vpContainer = new VerticalPanel();
-		vpContainer.add(lblName);
-		hpContainer.add(lbHourSelector);
-		hpContainer.add(lblHour);
-		hpContainer.add(lbMinuteSelector);
-		hpContainer.add(lblMinute);
-		vpContainer.add(hpContainer);
-
-=======
->>>>>>> chartDeveloppement
-		RootPanel.get().add(vpContainer);
-=======
-		RootPanel.get().add(getVPTimerContainer());
->>>>>>> ChartTest
+		// RootPanel.get().add(getVPTimerContainer());
 
 		//Create change value handler passing index to notify a listbox change for hours
 		lbHourSelector.addChangeHandler(new ChangeHandler(){
