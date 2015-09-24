@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function gwtchartproject(){var O='bootstrap',P='begin',Q='gwt.codesvr.gwtchartproject=',R='gwt.codesvr=',S='gwtchartproject',T='startup',U='DUMMY',V=0,W=1,X='iframe',Y='javascript:""',Z='position:absolute; width:0; height:0; border:none; left: -1000px;',$=' top: -1000px;',_='CSS1Compat',ab='<!doctype html>',bb='',cb='<html><head><\/head><body><\/body><\/html>',db='undefined',eb='DOMContentLoaded',fb=50,gb='Chrome',hb='eval("',ib='");',jb='script',kb='javascript',lb='moduleStartup',mb='moduleRequested',nb='Failed to load ',ob='head',pb='meta',qb='name',rb='gwtchartproject::',sb='::',tb='gwt:property',ub='content',vb='=',wb='gwt:onPropertyErrorFn',xb='Bad handler "',yb='" for "gwt:onPropertyErrorFn"',zb='gwt:onLoadErrorFn',Ab='" for "gwt:onLoadErrorFn"',Bb='#',Cb='?',Db='/',Eb='img',Fb='clear.cache.gif',Gb='baseUrl',Hb='gwtchartproject.nocache.js',Ib='base',Jb='//',Kb='user.agent',Lb='webkit',Mb='safari',Nb='msie',Ob=10,Pb=11,Qb='ie10',Rb=9,Sb='ie9',Tb=8,Ub='ie8',Vb='gecko',Wb='gecko1_8',Xb=2,Yb=3,Zb=4,$b='selectingPermutation',_b='gwtchartproject.devmode.js',ac='13EEAF7D76601A391C5C3057CBB9E010',bc='2737766B40B9E477F1BE7C07471D0DFA',cc='336A1EB6CE57D56C83AEFC1AB0951D5A',dc='C4EDDBE80BC24956A61F5CF213C7E0A9',ec='FB4B8669AA9906E02549D44AFF43275D',fc=':',gc='.cache.js',hc='link',ic='rel',jc='stylesheet',kc='href',lc='loadExternalRefs',mc='gwt/clean/clean.css',nc='end',oc='http:',pc='file:',qc='_gwt_dummy_',rc='__gwtDevModeHook:gwtchartproject',sc='Ignoring non-whitelisted Dev Mode URL: ',tc=':moduleBase';var o=window;var p=document;r(O,P);function q(){var a=o.location.search;return a.indexOf(Q)!=-1||a.indexOf(R)!=-1}
 function r(a,b){if(o.__gwtStatsEvent){o.__gwtStatsEvent({moduleName:S,sessionId:o.__gwtStatsSessionId,subSystem:T,evtGroup:a,millis:(new Date).getTime(),type:b})}}
 gwtchartproject.__sendStats=r;gwtchartproject.__moduleName=S;gwtchartproject.__errFn=null;gwtchartproject.__moduleBase=U;gwtchartproject.__softPermutationId=V;gwtchartproject.__computePropValue=null;gwtchartproject.__getPropMap=null;gwtchartproject.__installRunAsyncCode=function(){};gwtchartproject.__gwtStartLoadingFragment=function(){return null};gwtchartproject.__gwt_isKnownPropertyValue=function(){return false};gwtchartproject.__gwt_getMetaProperty=function(){return null};var s=null;var t=o.__gwt_activeModules=o.__gwt_activeModules||{};t[S]={moduleName:S};gwtchartproject.__moduleStartupDone=function(e){var f=t[S].bindings;t[S].bindings=function(){var a=f?f():{};var b=e[gwtchartproject.__softPermutationId];for(var c=V;c<b.length;c++){var d=b[c];a[d[V]]=d[W]}return a}};var u;function v(){w();return u}
@@ -25,3 +26,72 @@ r(lc,P);c(mc);r(lc,nc)}
 B();gwtchartproject.__moduleBase=C();t[S].moduleBase=gwtchartproject.__moduleBase;var H=F();if(o){var I=!!(o.location.protocol==oc||o.location.protocol==pc);o.__gwt_activeModules[S].canRedirect=I;function J(){var b=qc;try{o.sessionStorage.setItem(b,b);o.sessionStorage.removeItem(b);return true}catch(a){return false}}
 if(I&&J()){var K=rc;var L=o.sessionStorage[K];if(!/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/.*$/.test(L)){if(L&&(window.console&&console.log)){console.log(sc+L)}L=bb}if(L&&!o[K]){o[K]=true;o[K+tc]=C();var M=p.createElement(jb);M.src=L;var N=p.getElementsByTagName(ob)[V];N.insertBefore(M,N.firstElementChild||N.children[V]);return false}}}G();r(O,nc);A(H);return true}
 gwtchartproject.succeeded=gwtchartproject();
+=======
+/*
+ * Copyright 2014 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * This startup script is used when we run superdevmode from an app server.
+ */
+(function($wnd, $doc){
+  // document.head does not exist in IE8
+  var $head = $doc.head || $doc.getElementsByTagName('head')[0];
+  // Compute some codeserver urls so as the user does not need bookmarklets
+  var hostName = $wnd.location.hostname;
+  var serverUrl = 'http://' + hostName + ':9876';
+  var module = 'gwtchartproject';
+  var nocacheUrl = serverUrl + '/recompile-requester/' + module;
+
+  // Insert the superdevmode nocache script in the first position of the head
+  var devModeScript = $doc.createElement('script');
+  devModeScript.src = nocacheUrl;
+
+  // Everybody except IE8 does fire an error event
+  // This means that we do not detect a non running SDM with IE8.
+  if (devModeScript.addEventListener) {
+    var callback = function() {
+      // Don't show the confirmation dialogue twice (multimodule)
+      if (!$wnd.__gwt__sdm__confirmed &&
+           (!$wnd.__gwt_sdm__recompiler || !$wnd.__gwt_sdm__recompiler.loaded)) {
+        $wnd.__gwt__sdm__confirmed = true;
+        if ($wnd.confirm(
+            "Couldn't load " +  module + " from Super Dev Mode\n" +
+            "server at " + serverUrl + ".\n" +
+            "Please make sure this server is ready.\n" +
+            "Do you want to try again?")) {
+          $wnd.location.reload();
+        }
+      }
+    };
+    devModeScript.addEventListener("error", callback, true);
+  }
+
+  var injectScriptTag = function(){
+    $head.insertBefore(devModeScript, $head.firstElementChild || $head.children[0]);
+  };
+
+  if (/loaded|complete/.test($doc.readyState)) {
+    injectScriptTag();
+  } else {
+    //defer app script insertion until the body is ready
+    if($wnd.addEventListener){
+      $wnd.addEventListener('load', injectScriptTag, false);
+    } else{
+      $wnd.attachEvent('onload', injectScriptTag);
+    }
+  }
+})(window, document);
+>>>>>>> ChartTest

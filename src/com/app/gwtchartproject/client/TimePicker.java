@@ -31,6 +31,7 @@ public class TimePicker extends Widget {
 	private String _sMinuteSelected;
 	private String _sTimePickerValue;
 	private String _sTimePickerName;
+	public VerticalPanel _vpTimePickerContainer;
 
 	/**************************************
 				     Methods
@@ -62,6 +63,10 @@ public class TimePicker extends Widget {
 		return this._sTimePickerName;
 	}
 
+	public VerticalPanel getVPTimerContainer(){
+		return this._vpTimePickerContainer;
+	}
+
 	//*************Setters*************
 
 	public void setSelectedHour(String sHourSelected){
@@ -78,6 +83,13 @@ public class TimePicker extends Widget {
 
 	public void setTimePickerName(String sName){
 		this._sTimePickerName = sName;
+	}
+
+	public void setWidgetInVPContainer(Widget element){
+		if(_vpTimePickerContainer == null){
+			_vpTimePickerContainer = new VerticalPanel();
+		}
+		this._vpTimePickerContainer.add(element);
 	}
 
 	//Override Widget Methods
@@ -118,7 +130,7 @@ public class TimePicker extends Widget {
 		lbHourSelector.addItem("22");
 		lbHourSelector.addItem("23");
 
-		//Define the number of elements
+		//Define the number of visible elements
 		lbHourSelector.setVisibleItemCount(1);
 
 		//Implements the MinuteSelector
@@ -183,7 +195,7 @@ public class TimePicker extends Widget {
 		lbMinuteSelector.addItem("58");
 		lbMinuteSelector.addItem("59");
 
-		//Define the number of elements
+		//Define the number of visible elements
 		lbMinuteSelector.setVisibleItemCount(1);
 
 		/*
@@ -193,13 +205,14 @@ public class TimePicker extends Widget {
 		//1st one HorizontalPanel which horizontally plces the elements
 		HorizontalPanel hpContainer = new HorizontalPanel();
 		VerticalPanel vpContainer = new VerticalPanel();
-		vpContainer.add(lblName);
+		setWidgetInVPContainer(lblName);
 		hpContainer.add(lbHourSelector);
 		hpContainer.add(lblHour);
 		hpContainer.add(lbMinuteSelector);
 		hpContainer.add(lblMinute);
-		vpContainer.add(hpContainer);
+		setWidgetInVPContainer(hpContainer);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		//Add the pickers and labels to the RootPanel describes in the UI description
 
@@ -215,6 +228,9 @@ public class TimePicker extends Widget {
 =======
 >>>>>>> chartDeveloppement
 		RootPanel.get().add(vpContainer);
+=======
+		RootPanel.get().add(getVPTimerContainer());
+>>>>>>> ChartTest
 
 		//Create change value handler passing index to notify a listbox change for hours
 		lbHourSelector.addChangeHandler(new ChangeHandler(){
