@@ -35,17 +35,17 @@ import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Component;
 
 public class ChartParamUI extends Widget{
-	private ContentPanel pane;
+	public ContentPanel pane;
 
 	public ContentPanel getContentPanel(){
 		return this.pane;
 	}
 
-	public void setContentInPanel(Widget w){
+	public void setContentInPanel(Widget widget){
 		if(pane == null){
 			pane = new ContentPanel();
 		}
-		getContentPanel().add(w);
+		getContentPanel().add(widget);
 	}
 
 
@@ -111,9 +111,10 @@ public class ChartParamUI extends Widget{
 		hpGlobalContainer.add(vpEnd);
 
 		setContentInPanel(hpGlobalContainer);
-		pane.setWidth(450);
+		getContentPanel().setWidth(450);
+		// pane.setWidth(450);
 
-		RootPanel.get().add(getContentPanel());
+		// RootPanel.get().add(getContentPanel());
 		/*
 		* BeginDatePicker Handler, Convert Date to sql-type Date and places it in the currentChartParam as BeginDate
 		*/

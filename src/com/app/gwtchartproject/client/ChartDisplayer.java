@@ -15,6 +15,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.visualization.client.AbstractDataTable;
 import com.google.gwt.visualization.client.VisualizationUtils;
 import com.google.gwt.visualization.client.DataTable;
@@ -33,7 +34,7 @@ public class ChartDisplayer extends Widget{
                 Attributes
   ****************************************/
   private String _sName;
-  private ContentPanel _cpHistogramContainer;
+  public ContentPanel pane;
 
 
   /***************************************
@@ -44,12 +45,12 @@ public class ChartDisplayer extends Widget{
   public ChartDisplayer(String sName){
     super();
     setChartName(sName);
-    onLoad();
+    this.onLoad();
   }
 
   //Getters
-  public ContentPanel getCPHistogramContainer(){
-    return this._cpHistogramContainer;
+  public ContentPanel getContentPanel(){
+    return this.pane;
   }
 
   public String getChartName(){
@@ -61,20 +62,30 @@ public class ChartDisplayer extends Widget{
     this._sName = sName;
   }
 
+  public void setContentInPanel(Widget widget){
+    if(pane == null){
+      pane = new ContentPanel();
+    }
+    getContentPanel().add(widget);
+  }
+
+
 
   //onLoad Method called when the ChartDisplayer object is created
   public void onLoad(){
-    Runnable onLoadCallback= new Runnable(){
-      public void run(){
-        if(getCPHistogramContainer() == null){
-          _cpHistogramContainer = new ContentPanel();
-        }
-        getCPHistogramContainer().setHeadingText(getChartName());
+    Runnable onLoadCallback = new Runnable() {
+      public void run() {
+
+        // Create a hist chart visualization.
         ColumnChart hist = new ColumnChart(createTable(), createOptions());
-        getCPHistogramContainer().add(hist);
+
+        setContentInPanel(hist);
       }
     };
-    VisualizationUtils.loadVisualizationApi(onLoadCallback,ColumnChart.PACKAGE);
+
+    // Load the visualization api, passing the onLoadCallback to be called
+    // when loading is done.
+    VisualizationUtils.loadVisualizationApi(onLoadCallback, ColumnChart.PACKAGE);
   }
 
 
@@ -84,7 +95,7 @@ public class ChartDisplayer extends Widget{
     Options options = Options.create();
     options.setWidth(500);
     options.setHeight(300);
-    // options.set3D(true);
+    options.set3D(true);
     options.setTitle("Student Brain Daily Activity");
     return options;
   }
