@@ -22,8 +22,28 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.sencha.gxt.widget.core.client.ContentPanel;
+import com.sencha.gxt.fx.client.Draggable;
+import com.sencha.gxt.widget.core.client.Component;
+
 
 public class ChartParamUI extends Widget{
+	private ContentPanel pane;
+
+	public ContentPanel getContentPanel(){
+		return this.pane;
+	}
+
+	public void setContentInPanel(Widget w){
+		if(pane == null){
+			pane = new ContentPanel();
+		}
+		getContentPanel().add(w);
+	}
+
 
 	/*
 	* ChartParam wich will be constantly update
@@ -35,32 +55,33 @@ public class ChartParamUI extends Widget{
 	* Constructor method
 	*/
 	public ChartParamUI(){
+		super();
+		this.onLoad();
 
-
+	}
+	public void onLoad(){
 		/*
 		* Begin picker components
 		*/
-		final Label lblBeginSection = new Label("Choose Your begin state of chart treatment");
+		final TimePicker tpBeginTimeSelector = new TimePicker("Begin Date and Time Selector");
 		final DatePicker dpBeginDateSelector = new DatePicker();
-		final Label lblBeginTimeInstructions = new Label("Put your chosen begin time format : hh:mm:ss");
-		final TimePicker tpBeginTimeSelector = new TimePicker("Begin Time Selector");
-		final Button btBeginTimeSend = new Button("Specify Begin Time");
 
 		/*
 		* End picker components
 		*/
-		final Label lblEndSection = new Label("Choose Your end state of chart treatment");
+		final TimePicker tpEndTimeSelector = new TimePicker("End Date and Time Selector");
 		final DatePicker dpEndDateSelector = new DatePicker();
-		final Label lblEndTimeInstructions = new Label("Put your chosen end time format : hh:mm:ss");
-		final TimePicker tpEndTimeSelector = new TimePicker("Begin Time Selector");
-		final Button btEndTimeSend = new Button("Specify End Time");
 
 		/*
 		* Granularity listBox
 		*/
 		final ListBox lbGranularitySelector = new ListBox();
-//		lbGranularity.addItem(item);
+		lbGranularitySelector.addItem("Granularity");
 
+		/*
+		* SendButton
+		*/
+		final Button btSend = new Button("SendNewParam");
 		/*
 		* Format modifiers
 		*/
@@ -70,23 +91,25 @@ public class ChartParamUI extends Widget{
 		/*
 		* Display all the UI elements
 		*/
-		// Begin Selection Elements
-		RootPanel.get().add(lblBeginSection);
-		RootPanel.get().add(dpBeginDateSelector);
-		RootPanel.get().add(lblBeginTimeInstructions);
-		RootPanel.get().add(tpBeginTimeSelector);
-		RootPanel.get().add(btBeginTimeSend);
+		VerticalPanel vpBegin = new VerticalPanel();
+		VerticalPanel vpEnd = new VerticalPanel();
 
-		// End Selection Elements
-		RootPanel.get().add(lblEndSection);
-		RootPanel.get().add(dpEndDateSelector);
-		RootPanel.get().add(lblEndTimeInstructions);
-		RootPanel.get().add(tpEndTimeSelector);
-		RootPanel.get().add(btEndTimeSend);
+		HorizontalPanel hpGlobalContainer = new HorizontalPanel();
 
-		// Granularity ListBox
-		RootPanel.get().add(lbGranularitySelector);
+		vpBegin.add(tpBeginTimeSelector.getVPTimerContainer());
+		vpBegin.add(dpBeginDateSelector);
+		vpBegin.add(lbGranularitySelector);
+		hpGlobalContainer.add(vpBegin);
 
+		vpEnd.add(tpEndTimeSelector.getVPTimerContainer());
+		vpEnd.add(dpEndDateSelector);
+		vpEnd.add(btSend);
+		hpGlobalContainer.add(vpEnd);
+
+		setContentInPanel(hpGlobalContainer);
+		pane.setWidth(450);
+
+		RootPanel.get().add(getContentPanel());
 		/*
 		* BeginDatePicker Handler, Convert Date to sql-type Date and places it in the currentChartParam as BeginDate
 		*/
@@ -116,6 +139,5 @@ public class ChartParamUI extends Widget{
 
 
     	});
-
-	}
+		}
 }

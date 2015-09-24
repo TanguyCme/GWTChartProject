@@ -24,8 +24,8 @@ public class GWTChartProject implements EntryPoint {
 
 
 	public void onModuleLoad() {
-		final ChartParamUI cpDisplayedChartParamUI = new ChartParamUI();
-		RootPanel.get().add(cpDisplayedChartParamUI);
+		RootPanel.get().add(new ChartParamUI());
+		RootPanel.get().add(new ChartDisplayer("toto"));
 
 	}
 }
