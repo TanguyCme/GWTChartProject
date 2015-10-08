@@ -1,4 +1,7 @@
 package com.app.gwtchartproject.client;
+
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 /*
 This Module named ChartParam.java will describe a model wich will design a special chart
 5 Arguments will be needed to create a ChartParam Object :
@@ -12,7 +15,7 @@ This Module named ChartParam.java will describe a model wich will design a speci
 
 
 
-public class ChartParam {
+public class ChartParam implements IsSerializable{
 
 	/**************************************
 				   Attributes
@@ -27,7 +30,10 @@ public class ChartParam {
 	private String _sEndTime;
 
 	//Granularity attribute
-	private Granularity _gGranularity;
+	private String _gGranularity;
+
+	//ChartParam Renderer
+	private String _sChartParamRender;
 
 
 	/**************************************
@@ -37,7 +43,7 @@ public class ChartParam {
 	/*
 	Constructors
 	*/
-	public ChartParam(String sBeginDate, String sBeginTime, String sEndDate, String sEndTime, Granularity gGranularity){
+	public ChartParam(String sBeginDate, String sBeginTime, String sEndDate, String sEndTime, String gGranularity){
 		this.setBeginDate(sBeginDate);
 		this.setBeginTime(sBeginTime);
 		this.setEndDate(sEndDate);
@@ -65,8 +71,12 @@ public class ChartParam {
 		return this._sEndTime;
 	}
 
-	public Granularity getGranularity(){
+	public String getGranularity(){
 		return this._gGranularity;
+	}
+
+	public String getChartParamRender(){
+		return this._sChartParamRender;
 	}
 
 	//*************Setters*************
@@ -74,16 +84,24 @@ public class ChartParam {
 	public void setBeginDate(String sBeginDate){
 		this._sBeginDate = sBeginDate;
 	}
+
 	public void setBeginTime(String sBeginTime){
 		this._sBeginTime = sBeginTime;
 	}
+
 	public void setEndDate(String sEndDate){
 		this._sEndDate = sEndDate;
 	}
+
 	public void setEndTime(String sEndTime){
 		this._sEndTime = sEndTime;
 	}
-	public void setGranularity(Granularity gGranularity){
+
+	public void setGranularity(String gGranularity){
 		this._gGranularity = gGranularity;
+	}
+
+	public void setChartParamRender(){
+		this._sChartParamRender = this._sBeginTime + this._sBeginDate + this._sEndTime + this._sEndDate + this._gGranularity;
 	}
 }

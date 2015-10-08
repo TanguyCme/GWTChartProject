@@ -3,7 +3,7 @@ package com.app.gwtchartproject.client;
 This module describes the UI wich contain 5 begin pickers components,
 5 end pickers components and a granularity listbox
 Each time you can choose :
- 													- The date of begenning and end
+ 													- The date of beginning and end
 													- The time (min and hour) of begenning and end
 													- The granularity of your chart,
 													- a button to sens end and begin time if you want to change it dynamically
@@ -14,37 +14,109 @@ This module instanciate all the elements and format it in the UI to have a respo
 import java.util.Date;
 
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
 import com.google.gwt.user.client.ui.Widget;
-import com.sencha.gxt.fx.client.Draggable;
-import com.sencha.gxt.widget.core.client.Component;
-import com.google.gwt.user.client.ui.StackLayoutPanel;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.fx.client.Draggable;
-import com.sencha.gxt.widget.core.client.Component;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.core.client.GWT;
+
 
 public class ChartParamUI extends Widget{
-	public FlowPanel pane;
 
-	public static ChartServiceAsync getService(){
-		return GWT.create(ChartService.class);
+
+
+	/**************************************
+	 * 			Arguments
+	 **************************************/
+	public FlowPanel pane;
+	private String _sBeginDateString;
+	private String _sEndDateString;
+	private String _sBeginHourString;
+	private String _sBeginMinuteString;
+	private String _sEndHourString;
+	private String _sEndMinuteString;
+	private String _sGranularity;
+
+	/**************************************
+	 * 			Getters
+	 **************************************/
+	public String getSelectedGranularityString(){
+		return this._sGranularity;
 	}
 
+	//Getters Begin
+	public String getSelectedBeginDateString(){
+		return this._sBeginDateString;
+	}
+
+	public String getSelectedBeginHourString(){
+		return this._sBeginHourString;
+	}
+
+	public String getSelectedBeginMinuteString(){
+		return this._sBeginMinuteString;
+	}
+
+	//Getters End
+	public String getSelectedEndDateString(){
+		return this._sEndDateString;
+	}
+
+	public String getSelectedEndHourString(){
+		return this._sEndHourString;
+	}
+
+	public String getSelectedEndMinuteString(){
+		return this._sEndMinuteString;
+	}
+
+	/**************************************
+	 * 			Setters
+	 **************************************/
+	public void setSelectedGranularityString(String sGranularity){
+		this._sGranularity = sGranularity;
+	}
+
+	//Setters Begin
+	public void setSelectedBeginDateString(String sBeginDateString){
+		this._sBeginDateString = sBeginDateString;
+	}
+
+	public void setSelectedBeginHourString(String sBeginHourString){
+		this._sBeginHourString = sBeginHourString;
+	}
+
+	public void setSelectedBeginMinuteString(String sBeginMinuteString){
+		this._sBeginMinuteString = sBeginMinuteString;
+	}
+
+	//Setters End
+	public void setSelectedEndDateString(String sEndDateString){
+		this._sEndDateString = sEndDateString;
+	}
+
+	public void setSelectedEndHourString(String sEndHourString){
+		this._sEndHourString = sEndHourString;
+	}
+
+	public void setSelectedEndMinuteString(String sEndMinuteString){
+		this._sEndMinuteString = sEndMinuteString;
+	}
+
+
+
+	/**************************************
+	 * 			Methods
+	 **************************************/
 	public FlowPanel getFlowPanel(){
 		return this.pane;
 	}
@@ -56,11 +128,15 @@ public class ChartParamUI extends Widget{
 		getFlowPanel().add(widget);
 	}
 
+	public static ChartServiceAsync getService(){
+		return GWT.create(ChartService.class);
+	}
+
 
 	/*
 	* ChartParam wich will be constantly update
 	*/
-	public ChartParam cpCurrentChartParam = new ChartParam();
+	public ChartParam cpCurrentChartParam;
 
 
 	/*
@@ -108,7 +184,15 @@ public class ChartParamUI extends Widget{
 			};
 			public void onClick(ClickEvent event){
 				getService().generateChart(callback);
+				if(cpCurrentChartParam == null){
+					cpCurrentChartParam = new ChartParam(getSelectedBeginDateString(), tpBeginTimeSelector.getTimePickerValue(), getSelectedEndDateString(), tpEndTimeSelector.getTimePickerValue(), getSelectedGranularityString());
+				}cpCurrentChartParam.setBeginDate(getSelectedBeginDateString());
+				cpCurrentChartParam.setBeginTime(tpBeginTimeSelector.getTimePickerValue());
+				cpCurrentChartParam.setEndDate(getSelectedEndDateString());
+				cpCurrentChartParam.setEndTime(tpEndTimeSelector.getTimePickerValue());
+				cpCurrentChartParam.setGranularity(getSelectedGranularityString());
 			}
+
 		}
 		MyHandler handler = new MyHandler();
 		btSend.addClickHandler(handler);
@@ -137,10 +221,7 @@ public class ChartParamUI extends Widget{
 		hpGlobalContainer.add(vpEnd);
 
 		setContentInPanel(hpGlobalContainer);
-		// getFlowPanel().setWidth(450);
-		// pane.setWidth(450);
 
-		// RootPanel.get().add(getFlowPanel());
 		/*
 		* BeginDatePicker Handler, Convert Date to sql-type Date and places it in the currentChartParam as BeginDate
 		*/
@@ -150,8 +231,8 @@ public class ChartParamUI extends Widget{
       		public void onValueChange(ValueChangeEvent<Date> event) {
 		  		Date selectedDate = new Date();
 		    	selectedDate = event.getValue();
-		   		String dateString = sqlFormat.format(selectedDate);
-		   		cpCurrentChartParam.setBeginDate(dateString);
+		   		setSelectedBeginDateString(sqlFormat.format(selectedDate));
+		   		cpCurrentChartParam.setBeginDate(getSelectedBeginDateString());
     		}
     	});
 
@@ -164,9 +245,9 @@ public class ChartParamUI extends Widget{
     			Date selectedDate = new Date();
     			selectedDate = event.getValue();
     			String dateString = new String();
-    			dateString = sqlFormat.format(selectedDate);
+    			setSelectedEndDateString(sqlFormat.format(selectedDate));
     			cpCurrentChartParam.setEndDate(dateString);
     		}
     	});
 		}
-}
+	}
