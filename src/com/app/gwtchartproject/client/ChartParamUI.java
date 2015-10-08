@@ -13,6 +13,9 @@ This module instanciate all the elements and format it in the UI to have a respo
 
 import java.util.Date;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -22,7 +25,6 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
 import com.google.gwt.user.client.ui.Widget;
-import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Component;
 import com.google.gwt.user.client.ui.StackLayoutPanel;
@@ -33,19 +35,25 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Component;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.DialogBox;
 
 public class ChartParamUI extends Widget{
-	public ContentPanel pane;
+	public FlowPanel pane;
 
-	public ContentPanel getContentPanel(){
+	public static ChartServiceAsync getService(){
+		return GWT.create(ChartService.class);
+	}
+
+	public FlowPanel getFlowPanel(){
 		return this.pane;
 	}
 
 	public void setContentInPanel(Widget widget){
 		if(pane == null){
-			pane = new ContentPanel();
+			pane = new FlowPanel();
 		}
-		getContentPanel().add(widget);
+		getFlowPanel().add(widget);
 	}
 
 
@@ -86,6 +94,24 @@ public class ChartParamUI extends Widget{
 		* SendButton
 		*/
 		final Button btSend = new Button("SendNewParam");
+
+		class MyHandler implements ClickHandler{
+			final AsyncCallback<String> callback = new AsyncCallback<String>(){
+				public void onFailure(Throwable caught){
+					DialogBox dialogBox = new DialogBox();
+					dialogBox.setText("Remote Procedure Call - Failure");
+					dialogBox.center();
+				}
+				public void onSuccess(String s){
+					ChartDisplayer cd = new ChartDisplayer();
+				}
+			};
+			public void onClick(ClickEvent event){
+				getService().generateChart(callback);
+			}
+		}
+		MyHandler handler = new MyHandler();
+		btSend.addClickHandler(handler);
 		/*
 		* Format modifiers
 		*/
@@ -111,10 +137,10 @@ public class ChartParamUI extends Widget{
 		hpGlobalContainer.add(vpEnd);
 
 		setContentInPanel(hpGlobalContainer);
-		getContentPanel().setWidth(450);
+		// getFlowPanel().setWidth(450);
 		// pane.setWidth(450);
 
-		// RootPanel.get().add(getContentPanel());
+		// RootPanel.get().add(getFlowPanel());
 		/*
 		* BeginDatePicker Handler, Convert Date to sql-type Date and places it in the currentChartParam as BeginDate
 		*/
@@ -141,8 +167,6 @@ public class ChartParamUI extends Widget{
     			dateString = sqlFormat.format(selectedDate);
     			cpCurrentChartParam.setEndDate(dateString);
     		}
-
-
     	});
 		}
 }

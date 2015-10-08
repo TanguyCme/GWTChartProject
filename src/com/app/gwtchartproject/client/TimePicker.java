@@ -21,6 +21,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Component;
+import com.google.gwt.dom.client.Style.Unit;
 
 public class TimePicker extends Widget {
 
@@ -131,6 +132,8 @@ public class TimePicker extends Widget {
 
 		//Define the number of visible elements
 		lbHourSelector.setVisibleItemCount(1);
+		//Define the listBox's size
+		lbHourSelector.getElement().getStyle().setWidth(50,Unit.PX);
 
 		//Implements the MinuteSelector
 		lbMinuteSelector.addItem("00");
@@ -196,6 +199,9 @@ public class TimePicker extends Widget {
 
 		//Define the number of visible elements
 		lbMinuteSelector.setVisibleItemCount(1);
+
+		//Define the listbox's size
+		lbMinuteSelector.getElement().getStyle().setWidth(50,Unit.PX);
 
 		/*
 		This bloc defines th UI, set the Component Draggable

@@ -1,0 +1,2 @@
+serviceClass: com.app.gwtchartproject.client.ChartService
+path: 640BA6DE4FD9C2FC5ECBF65ABAB25A63.gwt.rpc

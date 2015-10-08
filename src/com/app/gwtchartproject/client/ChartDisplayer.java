@@ -6,7 +6,6 @@ You can display avery chart you need just in calling a new ChartDisplayer Object
 Methods : - void: onLoad()
               -> instanciate a Runnable called in the loadVisualisation Function
               -> Verify if the panel is already instanciate
-
 */
 
 
@@ -25,6 +24,7 @@ import com.google.gwt.visualization.client.events.SelectHandler;
 import com.google.gwt.visualization.client.visualizations.ColumnChart;
 import com.google.gwt.visualization.client.visualizations.ColumnChart.Options;
 import com.sencha.gxt.widget.core.client.ContentPanel;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.sencha.gxt.fx.client.Draggable;
 import com.sencha.gxt.widget.core.client.Component;
 
@@ -34,7 +34,9 @@ public class ChartDisplayer extends Widget{
                 Attributes
   ****************************************/
   private String _sName;
-  public ContentPanel pane;
+  public FlowPanel pane;
+
+
 
 
   /***************************************
@@ -42,14 +44,15 @@ public class ChartDisplayer extends Widget{
   ****************************************/
 
   //Constructor
-  public ChartDisplayer(String sName){
+  public ChartDisplayer(){
     super();
-    setChartName(sName);
     this.onLoad();
   }
 
+
+
   //Getters
-  public ContentPanel getContentPanel(){
+  public FlowPanel getFlowPanel(){
     return this.pane;
   }
 
@@ -62,24 +65,29 @@ public class ChartDisplayer extends Widget{
     this._sName = sName;
   }
 
-  public void setContentInPanel(Widget widget){
+  public void setFlowPanel(Widget widget){
     if(pane == null){
-      pane = new ContentPanel();
+      pane = new FlowPanel();
     }
-    getContentPanel().add(widget);
+    getFlowPanel().add(widget);
   }
 
 
 
-  //onLoad Method called when the ChartDisplayer object is created
+
+
+
+  //onLoad Method called when the ChartDisplayer
+  //object is created
   public void onLoad(){
     Runnable onLoadCallback = new Runnable() {
       public void run() {
-
+        Panel panel = RootPanel.get();
         // Create a hist chart visualization.
         ColumnChart hist = new ColumnChart(createTable(), createOptions());
 
-        setContentInPanel(hist);
+        setFlowPanel(hist);
+        panel.add(getFlowPanel());
       }
     };
 
@@ -87,6 +95,9 @@ public class ChartDisplayer extends Widget{
     // when loading is done.
     VisualizationUtils.loadVisualizationApi(onLoadCallback, ColumnChart.PACKAGE);
   }
+
+
+
 
 
 

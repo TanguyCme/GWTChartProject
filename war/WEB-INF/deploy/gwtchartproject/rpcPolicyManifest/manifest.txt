@@ -1,2 +1,3 @@
 # Module gwtchartproject
 # RPC service class, partial path of RPC policy file
+com.app.gwtchartproject.client.ChartService, 640BA6DE4FD9C2FC5ECBF65ABAB25A63.gwt.rpc

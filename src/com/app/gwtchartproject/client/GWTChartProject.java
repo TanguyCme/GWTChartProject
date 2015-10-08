@@ -20,10 +20,10 @@ public class GWTChartProject implements EntryPoint {
 
 	public void onModuleLoad() {
 		final ChartParamUI cpUI = new ChartParamUI();
-		final ChartDisplayer cdHist = new ChartDisplayer("toto");
-		FlowPanel fp = new FlowPanel();
+		// final ChartDisplayer cdHist = new ChartDisplayer();
+		HorizontalPanel fp = new HorizontalPanel();
 
-		fp.add(cpUI.getContentPanel());
+		fp.add(cpUI.getFlowPanel());
 		// fp.add(cdHist.getContentPanel());
 		// RootPanel.get().add(new ChartParamUI());
 		RootPanel.get().add(fp);
